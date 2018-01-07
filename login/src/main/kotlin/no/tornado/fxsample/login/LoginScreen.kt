@@ -52,6 +52,15 @@ class LoginScreen : View() {
             }
 
         }
+
+        runAsync {
+            System.out.println("Running on thread pool: " + System.currentTimeMillis())
+        } ui {
+            System.out.println("Running on UI thread: " + System.currentTimeMillis())
+        }
+        currentStage?.setOnCloseRequest {
+            System.out.println("Closing window: " + System.currentTimeMillis())
+        }
     }
 
     fun clear() {

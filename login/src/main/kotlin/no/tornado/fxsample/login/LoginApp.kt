@@ -16,5 +16,11 @@ class LoginApp : App(LoginScreen::class) {
 }
 
 fun main(args: Array<String>) {
+
+    Runtime.getRuntime().addShutdownHook(Thread {
+        System.out.println("JVM shutdown: " + System.currentTimeMillis())
+    })
+    System.out.println("Application started: " + System.currentTimeMillis())
     Application.launch(LoginApp::class.java, *args)
+    System.out.println("Application closed: " + System.currentTimeMillis())
 }
